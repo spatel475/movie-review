@@ -1,2 +1,13 @@
-<ag-grid-angular style="width: 50%; height: 50%" class="ag-theme-alpine-dark" [rowData]="movies" [columnDefs]="columnDefs">
-</ag-grid-angular>
+<mat-toolbar color="primary">
+	<div style="display: flex; justify-content: space-between;">
+		<mat-icon style="padding-right: 15px;">movie</mat-icon>
+		<span>Movie Review</span>
+		<button mat-flat-button color='warn' (click)="logout()">Logout</button>
+	</div>
+</mat-toolbar>
+
+<mat-card style="width: 50%; height: 50%;">
+	<ag-grid-angular style="width: 100%; height: 100%" class="ag-theme-alpine-dark" [rowData]="movies | async"
+		[columnDefs]="columnDefs">
+	</ag-grid-angular>
+</mat-card>
