@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <mat-icon>movie</mat-icon>
+  <span>Movie Review</span>
+</mat-toolbar>
+
+<app-movies [movies]="movies | async"></app-movies>
+
+<button mat-button (click)="addMovie()">Add New Movie</button>

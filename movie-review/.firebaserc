@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "movie-review-a25f4": {
+      "hosting": {
+        "movie-review": [
+          "movie-review-a25f4"
+        ]
+      }
+    }
+  }
+}
