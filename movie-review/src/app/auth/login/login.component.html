@@ -1,11 +1,18 @@
-<mat-card style="display: flex; flex-direction: column;">
-	<mat-form-field appearance="outline">
-		<mat-label>Email</mat-label>
-		<input matInput [(ngModel)]="user.email">
-	</mat-form-field>
-	<mat-form-field appearance="outline">
-		<mat-label>Password</mat-label>
-		<input matInput [(ngModel)]="user.password">
-	</mat-form-field>
-	<button mat-flat-button color='accent' (click)="login()">Login</button>
-</mat-card>
+<div class="container">
+	<div class="form-container">
+		<mat-card class="form">
+			<h1 class="mat-headline">Login</h1>
+			<mat-form-field appearance="outline">
+				<mat-label>Email</mat-label>
+				<input matInput [(ngModel)]="user.email">
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input matInput [(ngModel)]="user.password">
+			</mat-form-field>
+			<div style="display: flex; justify-content: center;">
+				<button mat-flat-button color='accent' style="width: fit-content;" (click)="login()">Login</button>
+			</div>
+		</mat-card>
+	</div>
+</div>

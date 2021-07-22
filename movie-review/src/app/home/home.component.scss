@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  padding: 1em;
+  margin-top: 4em;
+  overflow-x: hidden;
+  height: 90%;
+  width: 95%;
+}
+
+
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+.mat-toolbar {
+  height: 50px;
+  font-size: 16px;
+}
+
+.submenu.expanded {
+  transform: scaleY(1);
+}

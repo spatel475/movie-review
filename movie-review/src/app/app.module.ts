@@ -18,9 +18,11 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app-routes';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { GridComponent } from './ui/grid/grid.component';
 
 @NgModule({
-	declarations: [AppComponent, MoviesComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent],
+	declarations: [AppComponent, MoviesComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, HomeComponent, GridComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

@@ -4,6 +4,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
 
 export const AppRoutes: Routes = [
@@ -13,8 +14,11 @@ export const AppRoutes: Routes = [
 	{ path: 'verify-email', component: VerifyEmailComponent },
 	{
 		path: '',
-		component: MoviesComponent,
-		canActivate: [AppGuard]
+		component: HomeComponent,
+		canActivate: [AppGuard],
+		children: [
+			{ path: '', component: MoviesComponent }
+		]
 	},
 	{ path: '**', redirectTo: '' },
 ];
