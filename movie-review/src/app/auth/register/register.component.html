@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="container">
+	<div class="form-container">
+		<mat-card *ngIf="user" class="form">
+			<h1 class="mat-headline">Register</h1>
+			<mat-card-content>
+				<form [formGroup]="userRegisterForm">
+					<mat-form-field class="full-width" appearance="outline">
+						<mat-label>Username</mat-label>
+						<input formControlName="usernameField" matInput placeholder="John123" [required]="true"
+							[(ngModel)]="user.username">
+					</mat-form-field>
+					<mat-form-field class="full-width" appearance="outline">
+						<mat-label>Email</mat-label>
+						<input formControlName="emailField" matInput placeholder="john123@email.com" [required]="true"
+							[(ngModel)]="user.email">
+						<mat-error *ngIf="userRegisterForm.hasError('email')">Email Invalid</mat-error>
+					</mat-form-field>
+					<mat-form-field class="full-width" appearance="outline">
+						<mat-label>Password</mat-label>
+						<input id="password1" type="password" formControlName="password1" matInput placeholder="Password"
+							[required]="true" [(ngModel)]="user.newPassword" (input)="onPasswordInput()">
+						<mat-icon matSuffix (click)="togglePasswordVisibility('password1')">visibility</mat-icon>
+						<mat-error *ngIf="password.hasError('required')">Password Invalid</mat-error>
+					</mat-form-field>
+					<mat-form-field class="full-width" appearance="outline">
+						<mat-label>Confirm Password</mat-label>
+						<input id="password2" type="password" formControlName="password2" matInput
+							placeholder="Confirm Password" [required]="true" (input)="onPasswordInput()">
+						<mat-icon matSuffix (click)="togglePasswordVisibility('password2')">visibility</mat-icon>
+						<mat-error *ngIf="password2.hasError('required')">Please confirm your password</mat-error>
+						<mat-error *ngIf="password2.invalid && !password2.hasError('required')">Passwords don't match
+						</mat-error>
+					</mat-form-field>
+				</form>
+			</mat-card-content>
+			<div class="footer">
+				<button mat-stroked-button (click)="routeToLogin()">Cancel</button>
+				<button mat-flat-button color="accent" [disabled]="!isFormValid()" (click)="onSubmit()">Register</button>
+			</div>
+		</mat-card>
+	</div>
+</div>

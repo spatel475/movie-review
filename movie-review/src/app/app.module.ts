@@ -17,9 +17,10 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app-routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { GridComponent } from './ui/grid/grid.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
 	declarations: [AppComponent, MoviesComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, HomeComponent, GridComponent],
@@ -33,7 +34,13 @@ import { GridComponent } from './ui/grid/grid.component';
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFirestoreModule,
 		AngularFireAuthModule,
-		FormsModule
+		FormsModule,
+		ReactiveFormsModule,
+		ToastrModule.forRoot({
+			timeOut: 10000,
+			positionClass: 'toast-bottom-center',
+			preventDuplicates: true,
+		}),
 	],
 	providers: [],
 	bootstrap: [AppComponent],
