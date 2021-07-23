@@ -27,6 +27,7 @@
     "ag-grid-community": "^25.3.0",
     "firebase": "^7.0 || ^8.0",
     "firebaseui": "^4.8.1",
+    "ngx-toastr": "^14.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

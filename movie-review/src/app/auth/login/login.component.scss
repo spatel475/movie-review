@@ -15,4 +15,16 @@
 .form {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+}
+
+.footer {
+  text-align: center;
+  display: flex;
+
+  button {
+    flex: 1;
+    margin: 0.5em;
+    padding: 0.5em;
+  }
 }

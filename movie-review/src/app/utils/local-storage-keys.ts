@@ -1,3 +1,3 @@
-export class LocalStorageKeys {
-	public static User = "user";
+export enum LocalStorageKeys {
+	User = "user"
 }

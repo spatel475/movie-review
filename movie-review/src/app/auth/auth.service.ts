@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import { LoginUser } from '../models/login-user';
-import { User } from '../models/user';
 import { LocalStorageKeys } from '../utils/local-storage-keys';
+import { CommonRoutes } from '../utils/routes';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AuthService {
-	private user: User;
+	private user;
 
 	constructor(private auth: AngularFireAuth, private router: Router) {
 		this.auth.authState.subscribe(user => {
@@ -31,19 +30,18 @@ export class AuthService {
 	register(user: LoginUser): Promise<any> {
 		return Promise.all([
 			this.auth.createUserWithEmailAndPassword(user.email, user.password),
-			this.sendEmailVerification()
 		]);
 	}
 
 	async logout(): Promise<void> {
 		await this.auth.signOut();
 		localStorage.removeItem(LocalStorageKeys.User);
-		this.router.navigate(['login']);
+		this.router.navigate([CommonRoutes.Login]);
 	}
 
 	async sendEmailVerification(): Promise<void> {
 		await (await this.auth.currentUser).sendEmailVerification();
-		this.router.navigate(['verify-email']);
+		this.router.navigate([CommonRoutes.VerifyEmail]);
 	}
 
 	async sendPasswordResetEmail(passwordResetEmail: string): Promise<void> {
