@@ -3,3 +3,55 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.page {
+  height: 50%;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.movie-row:not(.expanded-row):hover {
+  background: rgb(100, 100, 100);
+}
+
+tr.movie-row:not(.expanded-row):active {
+  background: #888888;
+}
+
+.movie-row td {
+  border-bottom-width: 0;
+}
+
+.movie-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.movie-image {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+
+.movie-description {
+  padding: 16px;
+}
+
+.fab-menu {
+  position: fixed !important;
+  right: 15px;
+  bottom: 0;
+}
