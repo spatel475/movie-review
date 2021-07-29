@@ -28,9 +28,7 @@ export class AuthService {
 	}
 
 	register(user: LoginUser): Promise<any> {
-		return Promise.all([
-			this.auth.createUserWithEmailAndPassword(user.email, user.password),
-		]);
+		return this.auth.createUserWithEmailAndPassword(user.email, user.password);
 	}
 
 	async logout(): Promise<void> {

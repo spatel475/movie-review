@@ -21,9 +21,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { GridComponent } from './ui/grid/grid.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NewMovieComponent } from './movies/movie/movie.component';
 
 @NgModule({
-	declarations: [AppComponent, MoviesComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, HomeComponent, GridComponent],
+	declarations: [
+		AppComponent,
+		MoviesComponent,
+		LoginComponent,
+		RegisterComponent,
+		ForgotPasswordComponent,
+		VerifyEmailComponent,
+		HomeComponent,
+		GridComponent,
+		NewMovieComponent
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

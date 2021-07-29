@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user';
 import { passwordMatchValidator } from 'src/app/utils/password-match-validator';
 import { CommonRoutes } from 'src/app/utils/routes';
 import { AuthService } from '../auth.service';
+import { UserService } from '../user/user.service';
 
 @Component({
 	selector: 'app-register',
@@ -15,15 +16,16 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 	user: User = {
+		uid: '',
 		email: '',
-		username: '',
+		displayName: '',
 		newPassword: ''
 	};
 	userRegisterForm: FormGroup;
 	get password() { return this.userRegisterForm.get('password1'); }
 	get password2() { return this.userRegisterForm.get('password2'); }
 
-	constructor(private authService: AuthService, private router: Router, private toast: ToastrService) { }
+	constructor(private authService: AuthService, private router: Router, private toast: ToastrService, private userService: UserService) { }
 
 	ngOnInit(): void {
 		this.createForm();
@@ -56,10 +58,19 @@ export class RegisterComponent implements OnInit {
 			email: this.user.email,
 			password: this.user.newPassword
 		}
+
 		this.authService.register(user)
-			.then(x => this.router.navigateByUrl(CommonRoutes.Login))
+			.then(credential => {
+				if (!credential)
+					return;
+
+				this.user.newPassword = null;
+				this.user.uid = credential.user.uid;
+				this.userService.createUser(this.user);
+				this.router.navigateByUrl(CommonRoutes.Login);
+			})
 			.catch(err => {
-				this.toast.error(err.message, 'Error');
+				this.toast.error(err?.message, 'Error');
 				console.warn(err);
 			})
 	}

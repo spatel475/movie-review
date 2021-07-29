@@ -1,0 +1,24 @@
+<div class="container">
+	<h1 mat-dialog-title>{{title}}</h1>
+	<div mat-dialog-content class="form">
+		<mat-form-field appearance="outline">
+			<mat-label>Title</mat-label>
+			<input matInput [(ngModel)]="movie.title">
+		</mat-form-field>
+		<mat-form-field appearance="outline">
+			<mat-label>Description</mat-label>
+			<input matInput [(ngModel)]="movie.description">
+		</mat-form-field>
+		<mat-form-field appearance="outline">
+			<mat-label>Genre</mat-label>
+			<mat-select multiple [(ngModel)]="movie.genres" color='accent'>
+				<mat-option color='accent' *ngFor="let item of genres" [value]='item'>{{item}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="footer">
+		<button mat-stroked-button (click)="cancel()">Cancel</button>
+		<button mat-flat-button color='accent' [mat-dialog-close]="movie" cdkFocusInitial>Save</button>
+	</div>
+
+</div>
