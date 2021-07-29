@@ -1,0 +1,4 @@
+<h3>Post your Review</h3>
+
+<mat-slider [max]="5" [min]="0" [step]="1" [thumbLabel]="true" [(ngModel)]="myRating" (change)="sliderChanged($event.value)">
+</mat-slider>

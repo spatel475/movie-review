@@ -27,6 +27,7 @@
 				<div class="movie-detail" [@detailExpand]="movie == expandedMovie ? 'expanded' : 'collapsed'">
 					<div class="movie-image">Image here</div>
 					<button mat-flat-button color='accent' style="margin: 16px;" (click)="editMovie(movie)">Edit</button>
+					<app-rating [movieId]="movie.id" [userId]="user.uid" *ngIf="movie && user"></app-rating>
 					<div class="movie-description">
 						{{movie.description}} --
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore reiciendis nam officia molestias

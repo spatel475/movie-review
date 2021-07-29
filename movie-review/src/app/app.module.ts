@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { GridComponent } from './ui/grid/grid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NewMovieComponent } from './movies/movie/movie.component';
+import { RatingComponent } from './movies/ratings/rating/rating.component';
 
 @NgModule({
 	declarations: [
@@ -33,7 +34,8 @@ import { NewMovieComponent } from './movies/movie/movie.component';
 		VerifyEmailComponent,
 		HomeComponent,
 		GridComponent,
-		NewMovieComponent
+		NewMovieComponent,
+		RatingComponent
 	],
 	imports: [
 		BrowserModule,
