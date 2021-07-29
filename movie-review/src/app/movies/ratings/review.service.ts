@@ -32,8 +32,6 @@ export class ReviewService {
 		// Custom doc ID for relationship
 		const ratingPath = `ratings/${rating.userId}_${rating.movieId}`;
 
-		console.log(rating);
-
 		// Set the data, return the promise
 		return this.afs.doc(ratingPath).set(rating)
 	}
