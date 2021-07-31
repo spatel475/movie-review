@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSliderChange } from '@angular/material/slider';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ReviewService } from '../review.service';
 
 @Component({
@@ -16,8 +14,7 @@ export class RatingComponent implements OnInit {
 	stars: Observable<any>;
 	myRating: number;
 
-	constructor(private reviewService: ReviewService) {
-	}
+	constructor(private reviewService: ReviewService) { }
 
 	ngOnInit() {
 		this.stars = this.reviewService.getMovieRatings(this.movieId)
@@ -26,9 +23,11 @@ export class RatingComponent implements OnInit {
 		});
 	}
 
-
 	sliderChanged(value: number) {
 		this.reviewService.setRating(this.userId, this.movieId, value);
+	}
 
+	deleteRating() {
+		this.reviewService.deleteRating(this.userId, this.movieId);
 	}
 }

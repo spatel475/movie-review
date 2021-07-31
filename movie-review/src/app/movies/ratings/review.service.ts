@@ -35,4 +35,12 @@ export class ReviewService {
 		// Set the data, return the promise
 		return this.afs.doc(ratingPath).set(rating)
 	}
+
+	deleteRating(userId: string, movieId: string) {
+		// Custom doc ID for relationship
+		const ratingPath = `ratings/${userId}_${movieId}`;
+
+		// Set the data, return the promise
+		return this.afs.doc(ratingPath).delete();
+	}
 }

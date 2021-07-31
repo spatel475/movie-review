@@ -5,10 +5,11 @@ body {
 }
 
 .page {
-  height: 50%;
+  height: 90%;
   margin: 16px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 table {

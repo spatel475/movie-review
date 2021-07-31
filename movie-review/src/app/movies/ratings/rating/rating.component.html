@@ -1,4 +1,13 @@
-<h3>Post your Review</h3>
-
-<mat-slider [max]="5" [min]="0" [step]="1" [thumbLabel]="true" [(ngModel)]="myRating" (change)="sliderChanged($event.value)">
-</mat-slider>
+<div style="display: flex;">
+	<div>
+		<h3>Post your Review</h3>
+		<mat-slider [max]="5" [min]="0" [step]="1" [thumbLabel]="true" [(ngModel)]="myRating"
+			(change)="sliderChanged($event.value)">
+		</mat-slider>
+	</div>
+	<div *ngIf="myRating > 0">
+		<button mat-flat-button color='warn' (click)="deleteRating()">
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+</div>
