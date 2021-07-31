@@ -3,6 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { Movie } from '../models/movie';
 import { TableColDef } from '../ui/models/table-column-def';
 import { IsDeviceMobile } from '../utils/mobile-checker';
@@ -54,15 +55,17 @@ export class MoviesComponent {
 	expandedMovie: Movie | null;
 
 	movies: Observable<Movie[]>;
+	user = null;
 
-	constructor(private movieService: MovieService, private dialog: MatDialog) {
+	constructor(private movieService: MovieService, private dialog: MatDialog, private authService: AuthService) {
+		this.user = this.authService.currentUser;
 		this.movies = this.movieService.getAllMovies();
 	}
 
 	menuItemSelected(id: number) {
 		switch (id) {
 			case 1:
-				this.addNewMovie();
+				this.addMovie();
 				break;
 			default:
 				break;
@@ -82,7 +85,7 @@ export class MoviesComponent {
 		})
 	}
 
-	private addNewMovie() {
+	addMovie() {
 		let movie: Movie = {
 			id: '',
 			title: '',
