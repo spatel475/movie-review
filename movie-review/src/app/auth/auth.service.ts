@@ -31,6 +31,10 @@ export class AuthService {
 		return this.auth.createUserWithEmailAndPassword(user.email, user.password);
 	}
 
+	forgotPassword(email: string): Promise<any> {
+		return this.auth.sendPasswordResetEmail(email);
+	}
+
 	async logout(): Promise<void> {
 		await this.auth.signOut();
 		localStorage.removeItem(LocalStorageKeys.User);
