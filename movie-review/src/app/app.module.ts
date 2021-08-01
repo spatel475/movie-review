@@ -23,7 +23,6 @@ import { GridComponent } from './ui/grid/grid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NewMovieComponent } from './movies/movie/movie.component';
 import { RatingComponent } from './movies/ratings/rating/rating.component';
-import { ConfirmPasswordComponent } from './auth/confirm-password/confirm-password.component';
 
 @NgModule({
 	declarations: [
@@ -36,8 +35,7 @@ import { ConfirmPasswordComponent } from './auth/confirm-password/confirm-passwo
 		HomeComponent,
 		GridComponent,
 		NewMovieComponent,
-		RatingComponent,
-		ConfirmPasswordComponent
+		RatingComponent
 	],
 	imports: [
 		BrowserModule,

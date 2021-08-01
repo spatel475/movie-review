@@ -37,10 +37,6 @@ export class LoginComponent implements OnInit {
 		return this.userLoginForm.valid;
 	}
 
-	forgotPassword() {
-		this.router.navigateByUrl(CommonRoutes.ForgotPassword);
-	}
-
 	register() {
 		this.router.navigateByUrl(CommonRoutes.Register);
 	}
