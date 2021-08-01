@@ -1,1 +1,25 @@
+%flex-display {
+  display: flex;
+}
 
+.star-rating {
+  @extend %flex-display;
+  align-items: center;
+}
+
+.back-stars {
+  @extend %flex-display;
+  color: #7e7e7e;
+  position: relative;
+  text-shadow: 4px 4px 10px #313131;
+}
+
+.front-stars {
+  @extend %flex-display;
+  color: #69F0AE;
+  overflow: hidden;
+  position: absolute;
+  text-shadow: 2px 2px 3px #6c8f7e;
+  top: 0;
+  transition: all .5s
+}
