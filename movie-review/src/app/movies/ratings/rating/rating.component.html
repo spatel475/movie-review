@@ -1,9 +1,22 @@
-<div style="display: flex;">
+<div style="display: flex; flex-direction: column;">
 	<div>
-		<h3>Post your Review</h3>
-		<mat-slider [max]="5" [min]="0" [step]="1" [thumbLabel]="true" [(ngModel)]="myRating"
-			(change)="sliderChanged($event.value)">
-		</mat-slider>
+		<div class="star-rating" [id]='starRatingId' (click)="setRating()" (mouseover)="hover($event)">
+			<div class="back-stars" [id]='backStarId'>
+				<mat-icon>star</mat-icon>
+				<mat-icon>star</mat-icon>
+				<mat-icon>star</mat-icon>
+				<mat-icon>star</mat-icon>
+				<mat-icon>star</mat-icon>
+
+				<div class="front-stars" [id]='frontStarId' [style.width.%]='frontStarWidth'>
+					<mat-icon>star</mat-icon>
+					<mat-icon>star</mat-icon>
+					<mat-icon>star</mat-icon>
+					<mat-icon>star</mat-icon>
+					<mat-icon>star</mat-icon>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div *ngIf="myRating > 0">
 		<button mat-flat-button color='warn' (click)="deleteRating()">

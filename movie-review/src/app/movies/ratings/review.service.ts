@@ -20,7 +20,7 @@ export class ReviewService {
 		return this.afs.collection<Rating>('ratings', ref => ref.where('movieId', '==', movieId)).valueChanges();
 	}
 
-	getUserMovieRating(userId: string, movieId: string) {
+	getUserMovieRating(userId: string, movieId: string): Observable<Rating[]> {
 		return this.afs.collection<Rating>('ratings', ref => ref.where('movieId', '==', movieId).where('userId', '==', userId)).valueChanges();
 	}
 
